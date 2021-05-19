@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 19, 2021 lúc 10:30 AM
--- Phiên bản máy phục vụ: 10.4.10-MariaDB
--- Phiên bản PHP: 7.3.12
+-- Thời gian đã tạo: Th5 19, 2021 lúc 08:19 PM
+-- Phiên bản máy phục vụ: 10.4.18-MariaDB
+-- Phiên bản PHP: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `work_store1`
+-- Cơ sở dữ liệu: `database_theme1`
 --
 
 -- --------------------------------------------------------
@@ -30,9 +29,29 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categories` (
   `category_id` int(11) NOT NULL,
+  `category_parent_id` varchar(20) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Cấp của category',
   `category_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `category_slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `categories`
+--
+
+INSERT INTO `categories` (`category_id`, `category_parent_id`, `category_name`, `category_slug`) VALUES
+(1, '0', 'Nurse', ''),
+(3, '0', 'CNA', ''),
+(4, '0', 'Other Medical', ''),
+(7, '0', 'Order Tracking', ''),
+(8, '0', 'Contact Us', ''),
+(17, '4', 'Healthcare Worker', ''),
+(18, '4', 'Registered Nurse', ''),
+(19, '4', 'Nurse Practitioner', ''),
+(20, '4', 'LPN', ''),
+(21, '4', 'Medical Assistant', ''),
+(22, '4', 'CMA', ''),
+(23, '4', 'ER Nurse', ''),
+(24, '4', 'Respiratory', '');
 
 -- --------------------------------------------------------
 
@@ -260,7 +279,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT cho bảng `colors`

@@ -12,49 +12,46 @@
                 </div>
                 <div class="col-header-center">
                     <ul class="menu-header">
+                        <?php
+                $cate = $cat->show_category();
+                if($cate){
+                    while($result_new = $cate->fetch_assoc()){
+                    $category_id=$result_new['category_id'];
+                    $cat_child = $cat->show_category_child($category_id);
+                    if(!$cat_child){
+                ?>
+
                         <li class="item-menu">
-                            <a href="#"><span>Nurse</span></a>
+                            <a href="detail-collections.php?catid=<?php echo $result_new['category_id'] ?>"><?php echo $result_new['category_name'] ?>
+                            </a>
                         </li>
+
+                <?php
+                    }else{
+                        ?>
                         <li class="item-menu">
-                            <a href="#"><span>CNA</span></a>
-                        </li>
-                        <li class="item-menu">
-                            <a href="#"><span>Other Medical</span>
+                            <a href="detail-collections.php?catid=<?php echo $result_new['category_id'] ?>"><span><?php echo $result_new['category_name'] ?></span>
                                 <span class="icon-drop-down"><i class="fas fa-angle-down"></i></span>
                             </a>
+
                             <ul class="item-dropdown">
+                                <?php
+                                    while($result_new_2 = $cat_child->fetch_assoc()){
+                                ?>
                                 <li class="item-li">
-                                    <a href="#">Healthcare Worker</a>
+                                    <a href="detail-collections.php?catid=<?php echo $result_new_2['category_id'] ?>"><?php echo $result_new_2['category_name'] ?></a>
                                 </li>
-                                <li class="item-li">
-                                    <a href="#">Registered Nurse</a>
-                                </li>
-                                <li class="item-li">
-                                    <a href="#">Nurse Practitioner</a>
-                                </li>
-                                <li class="item-li">
-                                    <a href="#">LPN</a>
-                                </li>
-                                <li class="item-li">
-                                    <a href="#">Medical Assistant</a>
-                                </li>
-                                <li class="item-li">
-                                    <a href="#">CMA</a>
-                                </li>
-                                <li class="item-li">
-                                    <a href="#">ER Nurse</a>
-                                </li>
-                                <li class="item-li">
-                                    <a href="#">Respiratory</a>
-                                </li>
+                                <?php
+                                    }
+                                  ?>
                             </ul>
                         </li>
-                        <li class="item-menu">
-                            <a href="#"><span>Order Tracking</span></a>
-                        </li>
-                        <li class="item-menu">
-                            <a href="#"><span>Contact Us</span></a>
-                        </li>
+                        <?php
+                    }
+                }
+              } 
+              ?>
+                        
                     </ul>
                 </div>
                 <div class="menu-mobile-add header-bottom-mobile-wrapper" style="display: none;">

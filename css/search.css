@@ -1,0 +1,313 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --grey1: rgb(153, 153, 153);
+    --c-price: #d53810;
+    --c-old: #999;
+    --b-save: #d53810;
+    --c-time: #E85244;
+}
+
+
+@font-face {
+    font-family: Os;
+    font-weight: 400;
+    font-style: normal;
+    font-display: fallback;
+    src: url('../webfonts/Oswald-Regular.woff2') format("woff");
+}
+
+@font-face {
+    font-family: Oswald;
+    font-weight: 400;
+    font-style: normal;
+    font-display: fallback;
+    src: url('../webfonts/Oswald-Regular.woff2') format("woff");
+}
+
+body {
+    margin: 0;
+    font-family: Helvetica Neue, helveticaneue, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 1.5;
+    color: #1a1a1a;
+    text-align: left;
+    background-color: #fff;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#ss-search .container {
+    /*border-top: 1px solid black;*/
+    /*margin: 0 auto;*/
+    /*width: 95%;*/
+    padding: 0px 12px;
+    /* max-width: 1170px; */
+    /*margin-top: 40px;*/
+}
+
+@media (min-width: 576px) {
+
+    #ss-search .container {
+        max-width: 570px;
+    }
+}
+
+@media (min-width: 720px) {
+    #ss-search .container {
+        max-width: 720px;
+    }
+
+}
+
+@media (min-width: 1025px) {
+    #ss-search .container {
+        max-width: 990px;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    #ss-search .container {
+        max-width: 1170px;
+    }
+
+}
+
+#ss-search a {
+    color: #7ED321;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+#ss-search a:hover {
+    color: #497b13;
+    text-decoration: underline;
+}
+
+#ss-search p,
+#ss-search h1,
+#ss-search h2,
+#ss-search h3,
+#ss-search h4,
+#ss-search h5,
+#ss-search h6 {
+    margin-top: 0;
+    font-size: unset;
+    font-weight: unset;
+    line-height: unset;
+}
+
+#ss-search h1,
+#ss-search h2,
+#ss-search h3,
+#ss-search h4,
+#ss-search h5,
+#ss-search h6 {
+    font-family: Oswald, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: .5rem;
+    line-height: 1.3;
+    color: #1a1a1a;
+}
+
+/*-----------------------------------------------page search------------------------------------*/
+#ss-search{
+    margin-top: 40px;
+    margin-bottom: 96px;
+}
+
+#ss-search .breadcrumb {
+    font-size: .7143em;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #999;
+}
+
+#ss-search .container>h3 {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    font-size: 1.5em;
+}
+
+@media(max-width: 576px) {
+    #ss-search .breadcrumb {
+        text-align: center;
+    }
+
+    #ss-search .container>h3 {
+        text-align: center;
+    }
+}
+
+#ss-search>.container {
+    margin: auto;
+}
+
+#ss-search .breadcrumb>span {}
+
+#ss-search .breadcrumb>span a {
+    margin-right: 5px;
+}
+
+
+#ss-search .form-search-out .form-group {
+    width: 360px;
+    display: flex;
+}
+
+#ss-search img {
+    width: 100%;
+}
+
+#ss-search .form-search-out input {
+    border: 1px solid #E6E6E6;
+    font-size: 12px;
+    padding-left: 16px;
+    min-height: 40px;
+    flex-grow: 1;
+}
+
+#ss-search .form-search-out input:focus {
+    outline: none;
+}
+
+#ss-search .form-search-button {
+    background: url('../img/icon-socials.svg');
+    width: 36px;
+    height: 40px;
+    background-position: 4px -325px;
+    background-repeat: no-repeat;
+    border: 1px solid #E6E6E6;
+    border-left: none;
+    cursor: pointer;
+}
+
+@media(max-width: 576px) {
+    #ss-search .form-search-out .form-group {
+        width: 100%;
+    }
+}
+
+#ss-search .search-product-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 32px;
+    margin-right: -12px;
+    margin-left: -12px;
+}
+
+#ss-search .search-product-item {
+    display: block;
+    padding: 0px 12px;
+    position: relative;
+    text-align: center;
+}
+
+#ss-search .search-product-item-image {
+    position: relative;
+    overflow: hidden;
+    padding-top: 100%;
+    margin-bottom: 12px;
+}
+
+
+#ss-search .search-product-item-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+}
+
+#ss-search .search-product-info p {
+    font-size: 0.857rem;
+    text-decoration: none;
+    color: #000;
+}
+
+#ss-search .search-product-price-out {
+    margin-top: 16px;
+}
+
+#ss-search .search-product-price {
+    font-size: 1.143em;
+    font-weight: 500;
+}
+
+#ss-search .search-product-price-old {
+    margin-left: 12px;
+    font-size: 13px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+#ss-search .search-product-item:hover {
+    text-decoration: none;
+}
+
+#ss-search .search-product-item {
+    text-decoration: none;
+    position: relative;
+    flex: 0 0 25%;
+    margin-bottom: 24px;
+}
+
+#ss-search .search-product-sale {
+    width: 32px;
+    height: 32px;
+    background: url(../img/icons.svg);
+    background-position: -288px 0;
+    position: absolute;
+    top: -12px;
+    left: -5px;
+    transform: rotateZ(-12deg);
+}
+
+@media(max-width: 1024px) {
+    #ss-search .search-product-sale {
+        transform: scale(0.75) rotateZ(-12deg);
+        top: -10px;
+        left: 1px;
+    }
+}
+
+@media(max-width: 576px) {
+    #ss-search .search-product-item {
+        flex: 0 0 50%;
+    }
+}
+
+#ss-search .search-load-more {
+    outline: none;
+    background-color: #fff;
+    border: 1px solid #22232A;
+    color: #22232A;
+    text-decoration: none;
+    font-family: Oswald, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+    font-size: 12px;
+    transition: .3s all;
+    letter-spacing: 2px;
+    padding: 10px 22px;
+    cursor: pointer;
+    margin: auto;
+    display: block;
+    margin-top: 32px;
+}
+
+#ss-search .search-load-more:hover {
+    border: 1px solid #686A7E;
+    color: #686A7E;
+}

@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: Os;
+    font-weight: 400;
+    font-style: normal;
+    font-display: fallback;
+    src: url('../webfonts/Oswald-Regular.woff2') format("woff");
+}
+
+@font-face {
+    font-family: Oswald;
+    font-weight: 400;
+    font-style: normal;
+    font-display: fallback;
+    src: url('../webfonts/Oswald-Regular.woff2') format("woff");
+}
+
+body {
+    margin: 0;
+    font-family: Helvetica Neue, helveticaneue, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 1.5;
+    color: #1a1a1a;
+    text-align: left;
+    background-color: #fff;
+}
+
+@media (min-width: 576px) {
+
+    .container {
+        max-width: 570px;
+    }
+}
+
+@media (min-width: 720px) {
+    .container {
+        max-width: 720px;
+    }
+
+}
+
+@media (min-width: 1025px) {
+    .container {
+        max-width: 990px;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1170px;
+    }
+
+}
+
+a {
+    color: #7ED321;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+    color: #497b13;
+    text-decoration: underline;
+}
+
+#detail-collectios{
+    margin-top: 40px;
+    margin-bottom: 96px;
+}
+
+#detail-collectios .breadcrumb {
+    font-size: .7143em;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #999;
+}
+#detail-collectios .breadcrumb a{
+    color: #7ED321;
+}
+#detail-collectios .breadcrumb a:hover{
+    color: #497b13;
+}
+.row{
+    display: flex;
+    margin: auto;
+    flex-wrap: wrap;
+    padding: 15px 0px;
+}
+.title-collectios{
+    display: flex;
+    flex: 0 0 100%;
+    max-width: 100%;
+    justify-content: space-between;
+}
+
+.sort-by{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.select{
+    margin-left: 10px;
+}
+
+#colectios{
+    width: 100%;
+    background: transparent;
+    border: 1px solid #E6E6E6;
+    border-radius: 0;
+    padding: 10px 40px 10px 16px;
+    color: #000;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+.container>h3 {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    font-size: 1.5em;
+}
+
+@media(max-width: 576px) {
+    #detail-collectios .breadcrumb {
+        text-align: center;
+    }
+
+    .container>h3 {
+        text-align: center;
+    }
+    .title-collectios{
+        display: block;
+        flex: 0 0 100%;
+        max-width: 100%;
+        justify-content: space-between;
+    }
+}
+
+#detail-collectios>.container {
+    width: 100%;
+    padding-right: 12px;
+    padding-left: 12px;
+    margin-right: auto;
+    margin-left: auto;
+}
+#detail-collectios .breadcrumb>span a {
+    margin-right: 5px;
+}
+#detail-collectios .collectios-product-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 45px;
+    margin-right: -12px;
+    margin-left: -12px;
+}
+
+#detail-collectios .collectios-product-item {
+    display: block;
+    padding: 0px 12px;
+    position: relative;
+    text-align: center;
+}
+
+#detail-collectios .collectios-product-item-image {
+    position: relative;
+    overflow: hidden;
+    padding-top: 100%;
+    margin-bottom: 12px;
+}
+
+
+#detail-collectios .collectios-product-item-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+}
+.contrast{
+    filter: contrast(130%) grayscale(20%);
+}
+#detail-collectios .collectios-product-item-image img:hover{
+    filter:none;
+}
+
+#detail-collectios .collectios-product-info p {
+    text-decoration: none;
+    color: #000;
+}
+
+#detail-collectios .collectios-product-price-out {
+    margin-top: 16px;
+}
+
+#detail-collectios .collectios-product-price {
+    font-size: 1.143em;
+    font-weight: 500;
+}
+
+#detail-collectios .collectios-product-price-old {
+    margin-left: 12px;
+    font-size: 13px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+#detail-collectios .collectios-product-item:hover {
+    text-decoration: none;
+}
+
+#detail-collectios .collectios-product-item {
+    text-decoration: none;
+    position: relative;
+    flex: 0 0 25%;
+    margin-bottom: 24px;
+}
+
+#detail-collectios .collectios-product-sale {
+    width: 32px;
+    height: 32px;
+    background: url(https://assets.btdmp.com/themes/2/v/63/assets/images/icons/sprites-icon-32.svg?v3) no-repeat;
+    background-position: -288px 0;
+    position: absolute;
+    top: -12px;
+    left: -5px;
+    transform: rotateZ(-12deg);
+}
+
+@media(max-width: 1024px) {
+    #detail-collectios .collectios-product-sale {
+        transform: scale(0.75) rotateZ(-12deg);
+        top: -10px;
+        left: 1px;
+    }
+}
+
+@media(max-width: 576px) {
+    #detail-collectios .collectios-product-item {
+        flex: 0 0 50%;
+    }
+}
+

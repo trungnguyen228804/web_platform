@@ -1,0 +1,150 @@
+*{
+    box-sizing: border-box;
+} 
+body {
+    margin: 0;
+    font-family: Helvetica Neue,"HelveticaNeue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 1.5;
+    color: #1a1a1a;
+    text-align: left;
+    background-color: #fff;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+#check-out{
+    width: auto;
+    height: auto;
+    margin: 10px 26px;
+}
+#check-out .title{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#check-out .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -16px;
+}
+
+#check-out .col-25 {
+    flex: 25%;
+}
+
+#check-out .col-50 {
+    flex: 50%;
+}
+
+#check-out .col-75 {
+    flex: 75%;
+}
+
+#check-out .col-25,
+#check-out .col-50,
+#check-out .col-75 {
+    padding: 0 16px;
+}
+
+#check-out .container {
+    background-color: aliceblue;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+}
+
+#check-out input[type=text] ,#check-out select {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+#check-out label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+#check-out .icon-container {
+    margin-bottom: 20px;
+    padding: 7px 0;
+    font-size: 24px;
+}
+
+#check-out .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    width: 100%;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+#check-out .btn:hover,#check-out  .btn-apply:hover {
+    background-color: #45a049;
+}
+#check-out a {
+    color: #2196F3;
+}
+
+#check-out hr {
+    border: 1px solid lightgrey;
+}
+
+#check-out span.price {
+    float: right;
+    color: grey;
+}
+
+
+@media (max-width: 800px) {
+    #check-out .row {
+        flex-direction: column-reverse;
+    }
+    #check-out .col-25 {
+        margin-bottom: 20px;
+    }
+}
+#check-out .img-thumbnail{
+    width: 3.85714em;
+    height: 4.85714em;
+    border-radius: 5px;
+    background: #fff;
+    position: relative;
+}
+#check-out .img-thumbnail img{
+    width: 100%;
+}
+#check-out .border-top{
+    border-top: 1px solid #ddd;
+    padding: 10px 0px;
+}
+#check-out .btn-apply{
+    height: 41px;
+    padding: 12px;
+    margin-left: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #04AA6D;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+#check-out .sub-price{
+    padding: 10px 3px;
+}
+#check-out .price-toltal{
+    font-size: 20px;
+    font-weight: 600;
+    float: right;
+}
+#check-out .size-small{
+    font-size: 16px;
+    color: #777;
+}

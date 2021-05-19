@@ -2,6 +2,6 @@
 define("DB_HOST", "localhost");
 define("DB_USER", "root");
 define("DB_PASS", "");
-define("DB_NAME", "work_store1");
+define("DB_NAME", "database_theme1");
 
 ?>

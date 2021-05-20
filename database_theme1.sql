@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2021 at 09:42 AM
+-- Generation Time: May 20, 2021 at 01:13 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.4.16
 
@@ -132,14 +132,14 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `category_id`, `product_type_id`, `product_name`, `product_desc`, `product_status`, `product_star_range`, `product_price_cost`, `product_price_sale`) VALUES
-(1, 1, 1, 'BACK & BODY HURTS #CNALIFE BB-213', '<div class=\"tablet-tab-item active\">\r\n                            <p><br><strong>Unisex T-shirt</strong></p>\r\n                            <ul>\r\n                                <li>100% pre-shrunk cotton</li>\r\n                                <li>Seamless c', '1', '4', '49.99', '25.59'),
+(1, 1, 1, 'AACK & BODY HURTS #CNALIFE BB-213', '<div class=\"tablet-tab-item active\">\r\n                            <p><br><strong>Unisex T-shirt</strong></p>\r\n                            <ul>\r\n                                <li>100% pre-shrunk cotton</li>\r\n                                <li>Seamless c', '1', '4', '49.99', '35.59'),
 (2, 1, 1, 'BACK & BODY HURTS #CNALIFE BB-213', '<div class=\"tablet-tab-item active\">\r\n                            <p><br><strong>Unisex T-shirt</strong></p>\r\n                            <ul>\r\n                                <li>100% pre-shrunk cotton</li>\r\n                                <li>Seamless c', '1', '4', '49.99', '25.59'),
-(3, 1, 1, 'BACK & BODY HURTS #CNALIFE BB-213', '<div class=\"tablet-tab-item active\">\r\n                            <p><br><strong>Unisex T-shirt</strong></p>\r\n                            <ul>\r\n                                <li>100% pre-shrunk cotton</li>\r\n                                <li>Seamless c', '1', '4', '49.99', '25.59'),
+(3, 1, 1, 'BACK & BODY HURTS #CNALIFE BB-213', '<div class=\"tablet-tab-item active\">\r\n                            <p><br><strong>Unisex T-shirt</strong></p>\r\n                            <ul>\r\n                                <li>100% pre-shrunk cotton</li>\r\n                                <li>Seamless c', '1', '4', '49.99', '15.59'),
 (4, 1, 1, 'BACK & BODY HURTS #CNALIFE BB-213', '<div class=\"tablet-tab-item active\">\r\n                            <p><br><strong>Unisex T-shirt</strong></p>\r\n                            <ul>\r\n                                <li>100% pre-shrunk cotton</li>\r\n                                <li>Seamless c', '1', '4', '49.99', '25.59'),
-(5, 1, 1, 'BACK & BODY HURTS #CNALIFE BB-213', '<div class=\"tablet-tab-item active\">\r\n                            <p><br><strong>Unisex T-shirt</strong></p>\r\n                            <ul>\r\n                                <li>100% pre-shrunk cotton</li>\r\n                                <li>Seamless c', '1', '4', '49.99', '25.59'),
+(5, 1, 1, 'CACK & BODY HURTS #CNALIFE BB-213', '<div class=\"tablet-tab-item active\">\r\n                            <p><br><strong>Unisex T-shirt</strong></p>\r\n                            <ul>\r\n                                <li>100% pre-shrunk cotton</li>\r\n                                <li>Seamless c', '1', '4', '49.99', '25.59'),
 (6, 1, 1, 'BACK & BODY HURTS #CNALIFE BB-213', '<div class=\"tablet-tab-item active\">\r\n                            <p><br><strong>Unisex T-shirt</strong></p>\r\n                            <ul>\r\n                                <li>100% pre-shrunk cotton</li>\r\n                                <li>Seamless c', '1', '4', '49.99', '25.59'),
 (7, 1, 1, 'BACK & BODY HURTS #CNALIFE BB-213', '<div class=\"tablet-tab-item active\">\r\n                            <p><br><strong>Unisex T-shirt</strong></p>\r\n                            <ul>\r\n                                <li>100% pre-shrunk cotton</li>\r\n                                <li>Seamless c', '1', '4', '49.99', '25.59'),
-(8, 1, 1, 'BACK & BODY HURTS #CNALIFE BB-213', '<div class=\"tablet-tab-item active\">\r\n                            <p><br><strong>Unisex T-shirt</strong></p>\r\n                            <ul>\r\n                                <li>100% pre-shrunk cotton</li>\r\n                                <li>Seamless c', '1', '4', '49.99', '25.59');
+(8, 1, 1, 'JACK & BODY HURTS #CNALIFE BB-213', '<div class=\"tablet-tab-item active\">\r\n                            <p><br><strong>Unisex T-shirt</strong></p>\r\n                            <ul>\r\n                                <li>100% pre-shrunk cotton</li>\r\n                                <li>Seamless c', '1', '4', '49.99', '45.59');
 
 -- --------------------------------------------------------
 

@@ -1,0 +1,79 @@
+<?php
+
+	$filepath = realpath(dirname(__FILE__));
+	include_once ($filepath.'/../lib/database.php');
+	include_once ($filepath.'/../helpers/format.php');
+?>
+
+<?php
+	/**
+	 * 
+	 */
+	class sort
+	{
+		private $db;
+	 function show_sort_product_ajax($q, $id){
+			switch ($q) {
+				case 'name-by-asc':
+					$type_sort = "products.product_name asc";
+					break;
+				case 'name-by-desc':
+					$type_sort = "products.product_name desc";
+					break;
+				case 'price-by-asc':
+					$type_sort = "products.product_price_sale asc";
+					break;
+				case 'price-by-asc':
+					$type_sort = "products.product_price_sale desc";
+					break;
+				
+				default:
+					$type_sort = "products.product_name desc";
+					break;
+			}
+
+			// $query = "SELECT * FROM products INNER JOIN product_images WHERE products.category_id='$id' AND product_images.product_image_avatar='1' order by ".$type_sort." LIMIT 12";
+			$query = "SELECT * FROM products WHERE category_id='1'";
+
+			$product_sorted = $this->db->select($query);
+
+			if($product_sorted){
+            while($result = $product_sorted->fetch_assoc()){
+                echo "<a href='details.php?pro_id='".$result['product_id']."' class='collectios-product-item'>
+                <div class='collectios-product-item-image-out'>
+                    <div class='collectios-product-item-image'>
+                        <img src='admin/uploads/".$result['product_image_url'] ."' alt='".$result['product_name']."' class='contrast'>
+                    </div>
+                </div>  
+                <div class='collectios-product-info'>
+                    <p>".$result['product_name'] ."</p>
+                    <div class='collectios-product-price-out'>
+                        <span class='collectios-product-price'>$".$result['product_price_sale']."</span>
+                        <span class='collectios-product-price-old'>$".$result['product_price_cost']."</span>
+                    </div>
+                </div>
+                <div class='collectios-product-sale'>
+
+                    </div>
+                </a>";
+
+                }
+
+            }else{
+                echo 'Current this category haven not product! ';
+            }
+
+			return;
+		}
+
+	}
+?>
+
+<?php
+$q = $_GET['q'];
+
+$sort = new sort();
+
+$sort->show_sort_product_ajax($q, 1);
+
+?>

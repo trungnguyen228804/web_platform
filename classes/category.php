@@ -30,5 +30,17 @@
 			return $result;
 		}
 
+		public function getcatbyId($id){
+			$query = "SELECT * FROM categories where category_id = '$id'";
+			$result = $this->db->select($query);
+			return $result;
+		}
+
+		public function get_product_by_cat($id){
+			$query = "SELECT * FROM products INNER JOIN product_images WHERE products.category_id='$id' AND product_images.product_image_avatar='1' order by products.product_id desc LIMIT 12";
+
+			$result = $this->db->select($query);
+			return $result;
+		}
 	}
 ?>

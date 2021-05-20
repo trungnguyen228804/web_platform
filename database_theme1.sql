@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2021 at 05:38 AM
+-- Generation Time: May 20, 2021 at 09:42 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.4.16
 
@@ -42,8 +42,6 @@ INSERT INTO `categories` (`category_id`, `category_parent_id`, `category_name`, 
 (1, '0', 'Nurse', ''),
 (3, '0', 'CNA', ''),
 (4, '0', 'Other Medical', ''),
-(7, '0', 'Order Tracking', ''),
-(8, '0', 'Contact Us', ''),
 (17, '4', 'Healthcare Worker', ''),
 (18, '4', 'Registered Nurse', ''),
 (19, '4', 'Nurse Practitioner', ''),
@@ -63,6 +61,18 @@ CREATE TABLE `colors` (
   `color_id` int(11) NOT NULL,
   `color_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `colors`
+--
+
+INSERT INTO `colors` (`color_id`, `color_name`) VALUES
+(1, 'Navy'),
+(2, 'Black'),
+(3, 'Royal Blue'),
+(4, 'Red'),
+(5, 'Orange'),
+(6, 'Heliconia');
 
 -- --------------------------------------------------------
 
@@ -107,19 +117,29 @@ CREATE TABLE `order_details` (
 
 CREATE TABLE `products` (
   `product_id` int(11) NOT NULL,
-  `category_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `product_type_id` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `product_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `product_slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `product_status` int(1) NOT NULL
+  `category_id` int(11) NOT NULL COMMENT 'danh mục sản phẩm',
+  `product_type_id` int(11) NOT NULL COMMENT 'loại sản phẩm',
+  `product_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'tên sản phẩm',
+  `product_desc` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'mô tả sản phẩm',
+  `product_status` varchar(20) COLLATE utf8_unicode_ci NOT NULL COMMENT 'trạng thái sản phẩm(1 là hiện, 2 ẩn)',
+  `product_star_range` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT 'số lượng ngôi sao tối đa 5',
+  `product_price_cost` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT 'giá gốc',
+  `product_price_sale` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT 'giá khuyến mãi'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `category_id`, `product_type_id`, `product_name`, `product_slug`, `product_status`) VALUES
-(1, '1', '1', 'BACK & BODY HURTS #CNALIFE BB-213', '<div class=\"tablet-tab-item active\">\r\n                            <p><br><strong>Unisex T-shirt</strong></p>\r\n                            <ul>\r\n                                <li>100% pre-shrunk cotton</li>\r\n                                <li>Seamless c', 1);
+INSERT INTO `products` (`product_id`, `category_id`, `product_type_id`, `product_name`, `product_desc`, `product_status`, `product_star_range`, `product_price_cost`, `product_price_sale`) VALUES
+(1, 1, 1, 'BACK & BODY HURTS #CNALIFE BB-213', '<div class=\"tablet-tab-item active\">\r\n                            <p><br><strong>Unisex T-shirt</strong></p>\r\n                            <ul>\r\n                                <li>100% pre-shrunk cotton</li>\r\n                                <li>Seamless c', '1', '4', '49.99', '25.59'),
+(2, 1, 1, 'BACK & BODY HURTS #CNALIFE BB-213', '<div class=\"tablet-tab-item active\">\r\n                            <p><br><strong>Unisex T-shirt</strong></p>\r\n                            <ul>\r\n                                <li>100% pre-shrunk cotton</li>\r\n                                <li>Seamless c', '1', '4', '49.99', '25.59'),
+(3, 1, 1, 'BACK & BODY HURTS #CNALIFE BB-213', '<div class=\"tablet-tab-item active\">\r\n                            <p><br><strong>Unisex T-shirt</strong></p>\r\n                            <ul>\r\n                                <li>100% pre-shrunk cotton</li>\r\n                                <li>Seamless c', '1', '4', '49.99', '25.59'),
+(4, 1, 1, 'BACK & BODY HURTS #CNALIFE BB-213', '<div class=\"tablet-tab-item active\">\r\n                            <p><br><strong>Unisex T-shirt</strong></p>\r\n                            <ul>\r\n                                <li>100% pre-shrunk cotton</li>\r\n                                <li>Seamless c', '1', '4', '49.99', '25.59'),
+(5, 1, 1, 'BACK & BODY HURTS #CNALIFE BB-213', '<div class=\"tablet-tab-item active\">\r\n                            <p><br><strong>Unisex T-shirt</strong></p>\r\n                            <ul>\r\n                                <li>100% pre-shrunk cotton</li>\r\n                                <li>Seamless c', '1', '4', '49.99', '25.59'),
+(6, 1, 1, 'BACK & BODY HURTS #CNALIFE BB-213', '<div class=\"tablet-tab-item active\">\r\n                            <p><br><strong>Unisex T-shirt</strong></p>\r\n                            <ul>\r\n                                <li>100% pre-shrunk cotton</li>\r\n                                <li>Seamless c', '1', '4', '49.99', '25.59'),
+(7, 1, 1, 'BACK & BODY HURTS #CNALIFE BB-213', '<div class=\"tablet-tab-item active\">\r\n                            <p><br><strong>Unisex T-shirt</strong></p>\r\n                            <ul>\r\n                                <li>100% pre-shrunk cotton</li>\r\n                                <li>Seamless c', '1', '4', '49.99', '25.59'),
+(8, 1, 1, 'BACK & BODY HURTS #CNALIFE BB-213', '<div class=\"tablet-tab-item active\">\r\n                            <p><br><strong>Unisex T-shirt</strong></p>\r\n                            <ul>\r\n                                <li>100% pre-shrunk cotton</li>\r\n                                <li>Seamless c', '1', '4', '49.99', '25.59');
 
 -- --------------------------------------------------------
 
@@ -129,9 +149,35 @@ INSERT INTO `products` (`product_id`, `category_id`, `product_type_id`, `product
 
 CREATE TABLE `product_images` (
   `product_image_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
   `product_image_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `product_image_avatar` varchar(200) COLLATE utf8_unicode_ci NOT NULL
+  `product_image_avatar` varchar(200) COLLATE utf8_unicode_ci NOT NULL COMMENT 'hình ảnh đại diện cho sản phẩm(1: chọn)',
+  `product_type_id` int(11) NOT NULL,
+  `style_id` int(11) NOT NULL,
+  `color_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `product_images`
+--
+
+INSERT INTO `product_images` (`product_image_id`, `product_id`, `product_image_url`, `product_image_avatar`, `product_type_id`, `style_id`, `color_id`) VALUES
+(1, 1, '0x360@161726641339d1513930764631.png', '1', 1, 1, 1),
+(2, 1, '0x360@161726641339d1513930764631.png', '2', 1, 2, 2),
+(3, 1, '0x360@161726641339d1513930764631.png', '2', 1, 3, 2),
+(4, 1, '0x360@161726641339d1513930764631.png', '2', 1, 4, 2),
+(5, 1, '0x360@161726641339d1513930764631.png', '2', 1, 2, 3),
+(6, 1, '0x360@161726641339d1513930764631.png', '2', 1, 3, 3),
+(7, 1, '0x360@161726641339d1513930764631.png', '2', 1, 4, 3),
+(8, 1, '0x360@161726641339d1513930764631.png', '2', 1, 2, 4),
+(9, 1, '0x360@161726641339d1513930764631.png', '2', 1, 3, 4),
+(10, 1, '0x360@161726641339d1513930764631.png', '2', 1, 4, 4),
+(11, 1, '0x360@161726641339d1513930764631.png', '2', 1, 1, 1),
+(12, 1, '0x360@161726641339d1513930764631.png', '2', 1, 1, 1),
+(13, 1, '0x360@161726641339d1513930764631.png', '2', 1, 1, 1),
+(14, 1, '0x360@161726641339d1513930764631.png', '2', 1, 1, 1),
+(15, 1, '0x360@161726641339d1513930764631.png', '2', 1, 1, 1),
+(16, 1, '0x360@161726641339d1513930764631.png', '2', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -156,24 +202,6 @@ INSERT INTO `product_types` (`product_type_id`, `product_type_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_vars`
---
-
-CREATE TABLE `product_vars` (
-  `product_var_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `style_id` int(11) NOT NULL,
-  `color_id` int(11) NOT NULL,
-  `size_id` int(11) NOT NULL,
-  `product_image_id` int(11) NOT NULL,
-  `product_var_price` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `product_var_price_sale` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `product_var_status` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `sizes`
 --
 
@@ -181,6 +209,20 @@ CREATE TABLE `sizes` (
   `size_id` int(11) NOT NULL,
   `size_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `sizes`
+--
+
+INSERT INTO `sizes` (`size_id`, `size_name`) VALUES
+(1, 'null'),
+(2, 'S'),
+(3, 'M'),
+(4, 'L'),
+(5, 'XL'),
+(6, '2XL'),
+(7, '3XL'),
+(8, 'XS');
 
 -- --------------------------------------------------------
 
@@ -214,6 +256,16 @@ CREATE TABLE `styles` (
   `style_id` int(11) NOT NULL,
   `style_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `styles`
+--
+
+INSERT INTO `styles` (`style_id`, `style_name`) VALUES
+(1, 'null'),
+(2, 'Unisex T-Shirt'),
+(3, 'V-Neck T-Shirt'),
+(4, 'Ladies T-Shirt');
 
 -- --------------------------------------------------------
 
@@ -267,29 +319,25 @@ ALTER TABLE `order_details`
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`product_id`);
+  ADD PRIMARY KEY (`product_id`),
+  ADD KEY `category_id` (`category_id`),
+  ADD KEY `product_type_id` (`product_type_id`);
 
 --
 -- Indexes for table `product_images`
 --
 ALTER TABLE `product_images`
-  ADD PRIMARY KEY (`product_image_id`);
+  ADD PRIMARY KEY (`product_image_id`),
+  ADD KEY `product_id` (`product_id`),
+  ADD KEY `product_type_id` (`product_type_id`),
+  ADD KEY `color_id` (`color_id`),
+  ADD KEY `style_id` (`style_id`);
 
 --
 -- Indexes for table `product_types`
 --
 ALTER TABLE `product_types`
   ADD PRIMARY KEY (`product_type_id`);
-
---
--- Indexes for table `product_vars`
---
-ALTER TABLE `product_vars`
-  ADD KEY `fk_product_vars_products` (`product_id`),
-  ADD KEY `fk_product_vars_colors` (`color_id`),
-  ADD KEY `fk_product_vars_styles` (`style_id`),
-  ADD KEY `fk_product_vars_sizes` (`size_id`),
-  ADD KEY `fk_product_vars_product_images` (`product_image_id`);
 
 --
 -- Indexes for table `sizes`
@@ -329,7 +377,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `colors`
 --
 ALTER TABLE `colors`
-  MODIFY `color_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `color_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -347,13 +395,13 @@ ALTER TABLE `order_details`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `product_image_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `product_image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `product_types`
@@ -365,7 +413,7 @@ ALTER TABLE `product_types`
 -- AUTO_INCREMENT for table `sizes`
 --
 ALTER TABLE `sizes`
-  MODIFY `size_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `size_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `sliders`
@@ -377,7 +425,7 @@ ALTER TABLE `sliders`
 -- AUTO_INCREMENT for table `styles`
 --
 ALTER TABLE `styles`
-  MODIFY `style_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `style_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -402,14 +450,20 @@ ALTER TABLE `order_details`
   ADD CONSTRAINT `fk_order_details_orders` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
 
 --
--- Constraints for table `product_vars`
+-- Constraints for table `products`
 --
-ALTER TABLE `product_vars`
-  ADD CONSTRAINT `fk_product_vars_colors` FOREIGN KEY (`color_id`) REFERENCES `colors` (`color_id`),
-  ADD CONSTRAINT `fk_product_vars_product_images` FOREIGN KEY (`product_image_id`) REFERENCES `product_images` (`product_image_id`),
-  ADD CONSTRAINT `fk_product_vars_products` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
-  ADD CONSTRAINT `fk_product_vars_sizes` FOREIGN KEY (`size_id`) REFERENCES `sizes` (`size_id`),
-  ADD CONSTRAINT `fk_product_vars_styles` FOREIGN KEY (`style_id`) REFERENCES `styles` (`style_id`);
+ALTER TABLE `products`
+  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`category_id`),
+  ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`product_type_id`) REFERENCES `product_types` (`product_type_id`);
+
+--
+-- Constraints for table `product_images`
+--
+ALTER TABLE `product_images`
+  ADD CONSTRAINT `product_images_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
+  ADD CONSTRAINT `product_images_ibfk_2` FOREIGN KEY (`product_type_id`) REFERENCES `product_types` (`product_type_id`),
+  ADD CONSTRAINT `product_images_ibfk_3` FOREIGN KEY (`color_id`) REFERENCES `colors` (`color_id`),
+  ADD CONSTRAINT `product_images_ibfk_4` FOREIGN KEY (`style_id`) REFERENCES `styles` (`style_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

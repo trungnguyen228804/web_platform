@@ -6,15 +6,22 @@
         <div id="home-page">
             <div class="container">
                 <div class="slideshow-container">
-                    <div class="mySlides fade">
-                        <a href="#" class="zoom-cur"> <img class="slides_show lazyloaded" alt="banner-1" src="https://image.freepik.com/free-psd/woman-shopping-summer-sale-banner_23-2148515792.jpg" /> </a>
-                    </div>
-                    <div class="mySlides fade">
-                        <a href="#" class="zoom-cur"> <img class="slides_show lazyloaded" alt="banner-2" src="https://img.freepik.com/free-psd/horizontal-banner-online-fashion-sale_23-2148585404.jpg?size=626&ext=jpg" /> </a>
-                    </div>
-                    <div class="mySlides fade">
-                        <a href="#" class="zoom-cur"> <img class="slides_show lazyloaded" alt="banner-3" src="https://image.freepik.com/free-psd/banner-template-with-online-shopping-design_23-2148550895.jpg" /> </a>
-                    </div>
+                    <?php
+                        $get_slider = $product->show_slider();
+                        if($get_slider){
+                            while($result_slider = $get_slider->fetch_assoc()){
+
+                         ?>
+                         <div class="mySlides fade">
+                            <a href="#" class="zoom-cur"> <img class="slides_show lazyloaded" src="admin/uploads/<?php echo $result_slider['slider_image'] ?>" alt="<?php echo $result_slider['slider_name'] ?>" /> </a>
+                        </div>
+                         
+                        <?php
+                            }
+                        }
+
+                         ?>
+
                     <a class="prev" onclick="plusSlides(-1)">❮</a> <a class="next" onclick="plusSlides(1)">❯</a>
                 </div>
                 <script>
@@ -56,21 +63,22 @@
                 <div class="container">
                     <h2>COLLECTION LIST</h2>
                     <div class="row">
+                        
                         <div class="col">
-                            <a href="#">
-                                <img src="https://img.btdmp.com/files/10119129/2021/03/07/0x720@16151313694a59dcd19d.jpeg" alt="T-SHIRT">
+                            <a href="detail-collections.php?pro_type=">
+                                <img src="img/0x720@16151313694a59dcd19d.jpeg" alt="T-SHIRT">
                             </a>
                             <p class="title">T-shirt</p>
                         </div>
                         <div class="col">
                             <a href="#">
-                                <img src="https://img.btdmp.com/files/10119129/2020/11/13/0x720@160526677101fa37eb46.jpeg" alt="Tumbler">
+                                <img src="img/0x720@160526677101fa37eb46.jpeg" alt="Tumbler">
                             </a>
                             <p class="title">Tumbler</p>
                         </div>
                         <div class="col">
                             <a href="#">
-                                <img src="https://img.btdmp.com/10119/10119129/products/0x720@1607759622c61bf667b2.jpeg" alt="Canvas">
+                                <img src="img/0x720@1607759622c61bf667b2.jpeg" alt="Canvas">
                             </a>
                             <p class="title">Canvas</p>
                         </div>

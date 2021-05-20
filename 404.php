@@ -15,7 +15,7 @@
     	<div class="cartoption">		
 			<div class="cartpage">
 			    <div class="not_found">
-			    	<h3>Sorry! Page doesn't found okokok</h3>
+			    	<h3>Sorry! Page doesn't found kokoko</h3>
 			    </div>
 			</div>
 					

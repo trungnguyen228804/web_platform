@@ -50,7 +50,16 @@
                     }
                 }
               } 
-              ?>
+              ?>    
+
+                <li class="item-menu">
+                            <a href="order_tracking.php"><span>Order Tracking</span></a>
+                        </li>
+
+
+                <li class="item-menu">
+                            <a href="contact_us.php"><span>Order Tracking</span></a>
+                        </li>
                         
                     </ul>
                 </div>

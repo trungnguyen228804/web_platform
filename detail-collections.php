@@ -36,7 +36,7 @@
                             <div>Sort by</div>
                             <div class="select">
                                 <div class="select-box">
-                                    <select name="product" id="colectios">
+                                    <select name="product" id="colectios" onchange="show_sort(this.value)">
                                         <option value="name-by-asc">Alphabet, A -> Z</option>
                                         <option value="name-by-desc">Alphabet, Z -> A</option>
                                         <option value="price-by-asc">Price, Low to high</option>
@@ -61,7 +61,7 @@
                          if($productbycat){
                             while($result = $productbycat->fetch_assoc()){
                         ?>  
-                        <a href="#" class="collectios-product-item">
+                        <a href="details.php?pro_id=<?php echo $result['product_id'] ?>" class="collectios-product-item">
                         <div class="collectios-product-item-image-out">
                             <div class="collectios-product-item-image">
                                 <img src="admin/uploads/<?php echo $result['product_image_url'] ?>" alt="<?php echo $result['product_name'] ?>" class="contrast">
@@ -88,6 +88,25 @@
                         ?>
             </div>
         </section>
+
+        <script type="text/javascript">
+            
+            function show_sort(str) {
+                  if (str == "") {
+                    document.querySelector(".collectios-product-list").innerHTML = "";
+                    return;
+                  } else {
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function() {
+                      if (this.readyState == 4 && this.status == 200) {
+                        document.querySelector(".collectios-product-list").innerHTML = this.responseText;
+                      }
+                    };
+                    xmlhttp.open("GET","show_sort.php?q="+str,true);
+                    xmlhttp.send();
+                  }
+                }
+        </script>
 <?php 
 	include 'inc/footer.php';
 	

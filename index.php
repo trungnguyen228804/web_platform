@@ -66,19 +66,19 @@
                         
                         <div class="col">
                             <a href="detail-collections.php?pro_type=1">
-                                <img src="img/0x720@16151313694a59dcd19d.jpeg" alt="T-SHIRT">
+                                <img src="img/0x720@16151313694a59dcd19d.png" alt="T-SHIRT">
                             </a>
                             <p class="title">T-shirt</p>
                         </div>
                         <div class="col">
                             <a href="detail-collections.php?pro_type=2">
-                                <img src="img/0x720@160526677101fa37eb46.jpeg" alt="Tumbler">
+                                <img src="img/0x720@160526677101fa37eb46.png" alt="Tumbler">
                             </a>
                             <p class="title">Tumbler</p>
                         </div>
                         <div class="col">
                             <a href="detail-collections.php?pro_type=3">
-                                <img src="img/0x720@1607759622c61bf667b2.jpeg" alt="Canvas">
+                                <img src="img/0x540@1607759622c61bf667b2.png" alt="Canvas">
                             </a>
                             <p class="title">Canvas</p>
                         </div>

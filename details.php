@@ -4,11 +4,14 @@
 ?>
 
 <?php
+
     if(!isset($_GET['pro_id']) || $_GET['pro_id']==NULL){
            echo "<script>window.location ='404.php'</script>";
         }else{
             $id = $_GET['pro_id']; 
         }
+
+    $style = "Unisex T-Shirt";
 
 ?>
 <section id="ss-detail">
@@ -119,16 +122,17 @@
                     <div class="product-image-list">
                         <?php
                         if($product_images_by_id){
+
                             while($result_images_avatar = $product_images_by_id->fetch_assoc()){
                         ?>
                         <div class="product-image-item"><img src="admin/uploads/<?php echo $result_images_avatar['product_image_url'] ?>" alt="<?php echo $result_details['product_name'] ?>"></div>
                         
                         <?php
+
                             }
                         }
-                        ?>
 
-                        
+                        ?>
 
 
                     </div>
@@ -143,56 +147,43 @@
                 </div>
                 <div class="product-image-dot-out">
                     <div class="product-image-dot-list">
-                        <button class="product-image-dot-item i-active"></button>
-                        <button class="product-image-dot-item"></button>
-                        <button class="product-image-dot-item"></button>
-                        <button class="product-image-dot-item"></button>
-                        <button class="product-image-dot-item"></button>
-                        <button class="product-image-dot-item"></button>
-                        <button class="product-image-dot-item"></button>
-                        <button class="product-image-dot-item"></button>
-                        <button class="product-image-dot-item"></button>
-                        <button class="product-image-dot-item"></button>
-                        <button class="product-image-dot-item"></button>
-                        <button class="product-image-dot-item"></button>
+                         <?php
+                        if($product_images_by_id){
+                            $k=1;
+                            while($result_images_avatar = $product_images_by_id->fetch_assoc()){
+                        ?>
+                        <button class="product-image-dot-item <?php if($k==1){echo "i-active";} ?> "></button>
+                        
+                        <?php
+                        $k=2;
+
+                            }
+                        }
+
+                        ?>
+                      
                     </div>  
                 </div>
                 <div class="product-thumb-out">
                     <div class="product-thumb-list">
 
                         <?php
-                        if($product_by_id){
+                        if($product_images_by_id){
                             
-                            $row = mysqli_fetch_assoc($product_by_id);
-                            echo "<pre>";
-                            print_r($row);
-                            echo "</pre>";
+                            // echo "<pre>";
+                            // print_r($product_images_by_id);
+                            // echo "</pre>";
+                            $i=1;
+                            foreach ($product_images_by_id as $item) {
 
-                            while($result_images_avatar = $product_by_id->fetch_assoc()){
-                            echo "string";
-                            echo "<pre>";
-                            print_r($result_images_avatar);
-                            echo "</pre>";
-                        ?>
-                       <!--  <div class="product-image-item i-active"><img src="admin/uploads/<?php echo $result_images_avatar['product_image_url'] ?>" alt="<?php echo $result_details['product_name'] ?>"></div> -->
-                        
-                        <?php
-                            }
+                                ?>
+                                <div class="product-thumb-item <?php if($i==1){echo "i-active";} ?>"><img src="admin/uploads/<?php echo $item['product_image_url'] ?>" alt="<?php echo $result_details['product_name'] ?>"></div>
+                                <?php
+                                $i=2;
+                            };
                         }
                         ?>
 
-                        <!-- <div class="product-thumb-item i-active"><img src="img/product1-1.png" alt=""></div>
-                        <div class="product-thumb-item"><img src="img/product1-2.png" alt=""></div>
-                        <div class="product-thumb-item"><img src="img/product1-3.png" alt=""></div>
-                        <div class="product-thumb-item"><img src="img/product1-4.png" alt=""></div>
-                        <div class="product-thumb-item"><img src="img/product1-1.png" alt=""></div>
-                        <div class="product-thumb-item"><img src="img/product1-2.png" alt=""></div>
-                        <div class="product-thumb-item"><img src="img/product1-3.png" alt=""></div>
-                        <div class="product-thumb-item"><img src="img/product1-4.png" alt=""></div>
-                        <div class="product-thumb-item"><img src="img/product1-1.png" alt=""></div>
-                        <div class="product-thumb-item"><img src="img/product1-2.png" alt=""></div>
-                        <div class="product-thumb-item"><img src="img/product1-3.png" alt=""></div>
-                        <div class="product-thumb-item"><img src="img/product1-4.png" alt=""></div> -->
                     </div>
                     <div class="prev thumb-prev">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 24 24">
@@ -206,7 +197,7 @@
             </div>
             <div class="detail-content">
                 <div class="detail-header">
-                    <h1>LIMITED - SOCIAL WORKER QUEEN BB-143</h1>
+                    <h1><?php echo $result_details['product_name']; ?></h1>
                     <div class="review-star-list">
                         <span class="review-icon-star"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="#dadada" width="16px" height="16px">
                                 <path d="M14.3502222,5.83466667 L10.5128889,5.27644444 L8.8,1.8 C8.63435285,1.51502671 8.3296191,1.33968471 8,1.33968471 C7.6703809,1.33968471 7.36564715,1.51502671 7.2,1.8 L5.48711111,5.27733333 L1.64977778,5.83466667 C1.31455321,5.88274486 1.03577211,6.11712854 0.930834093,6.43911462 C0.825896075,6.76110069 0.913035163,7.11474089 1.15555556,7.35111111 L3.93155556,10.0577778 L3.27644444,13.88 C3.21930785,14.2134664 3.35642866,14.5504556 3.63015923,14.7492923 C3.90388979,14.948129 4.26676326,14.9743334 4.56622222,14.8168889 L8,13.0115556 L11.432,14.8151111 C11.731459,14.9725556 12.0943324,14.9463512 12.368063,14.7475145 C12.6417936,14.5486778 12.7789144,14.2116887 12.7217778,13.8782222 L12.0666667,10.056 L14.8444444,7.35111111 C15.0863486,7.11492322 15.1733229,6.76195351 15.0688464,6.44041497 C14.96437,6.11887643 14.686533,5.88444363 14.352,5.83555556 L14.3502222,5.83466667 Z"></path>
@@ -226,9 +217,9 @@
                         <a href="#">(1)</a>
                     </div>
                     <div class="detail-price-box">
-                        <span class="price-new">$25.59</span>
-                        <span class="price-old">$42.99</span>
-                        <span class="price-save">Save $17.40</span>
+                        <span class="price-new">$<?php echo $result_details['product_price_sale']; ?></span>
+                        <span class="price-old">$<?php echo $result_details['product_price_cost']; ?></span>
+                        <span class="price-save">Save $<?php echo ($result_details['product_price_cost']-$result_details['product_price_sale']); ?></span>
                     </div>
                     <div class="detail-time">
                         <span class="icon-time">
@@ -238,48 +229,133 @@
                         <div class="detail-time-text">left to buy</div>
                     </div>
                 </div>
+                 <?php
+                        if($product_images_by_id){
+                    ?>
                 <div class="detail-var">
+                    
                     <div class="detail-var-box">
                         <div class="detail-var-box-header">
                             <span>Style: </span>
-                            <label for="" class="detail-var-style">Premium Ladies T-Shirt</label>
+                            <?php
+                                foreach ($product_images_by_id as $item) {
+                                    ?>
+                                        <label for="" class="detail-var-style"><?php echo $item['style_name']; ?></label>
+
+                                    <?php
+                                    break;
+                                }
+                            ?>
+                            
                         </div>
                         <div class="detail-var-box-image">
-                            <img class="active" src="img/product1-style1.png" alt="">
-                            <img src="img/product1-style2.png" alt="">
-                            <img src="img/product1-style3.png" alt="">
-                            <img src="img/product1-style1.png" alt="">
-                            <img src="img/product1-style2.png" alt="">
-                            <img src="img/product1-style3.png" alt="">
+                                <?php
+                                // echo "<pre>";
+                                // print_r($product_images_by_id);
+                                // echo "</pre>";
+                                $i=1;
+                                foreach ($product_images_by_id as $item) {
+
+                                    if($item['color_name']=="Black"){
+                                    ?>
+
+
+                                    <img class="<?php if($i==1){echo "active";} ?>" data-style_id="<?php echo $item['style_id'] ; ?>" src="admin/uploads/<?php echo $item['product_image_url'] ?>" alt="<?php echo $result_details['product_name'] ?>">
+
+                                    <?php
+                                    $i=2;
+                                }
+                                    
+                                };
+                            ?>
+                            
                         </div>
                     </div>
+                   
                     <div class="detail-var-box">
                         <div class="detail-var-box-header">
                             <span>Color: </span>
-                            <label for="" class="detail-var-color">Black</label>
+                             <?php
+                             
+                            $list_color = $product->get_list_color_by_product_id($id, $style);
+
+                                foreach ($list_color as $item) {
+
+                                    ?>
+                                         <label for="" class="detail-var-color"><?php echo $item['color_name']; ?></label> 
+
+                                    <?php
+                                    break;
+                                }
+                            ?>
                         </div>
                         <div class="detail-var-box-color">
-                            <button class="button-color active" style="background-color: red;"></button>
-                            <button class="button-color"  style="background-color: #111111;"></button>
-                            <button class="button-color" style="background-color: yellow;"></button>
-                            <button class="button-color" style="background-color: rgb(10, 34, 69);"><!----></button>
-                            <button class="button-color" style="background-color: rgb(0, 80, 178);"><!----></button>
+                                <?php
+                                
+                                $k=1;
+                                foreach ($list_color as $item) {
+
+                                    ?>
+
+                                    <button class="button-color <?php if($k==1){echo "active";} ?>" data-color_id="<?php echo $item['color_id'] ?>" style="<?php echo $item['color_code'] ?>;"></button>
+
+                                    <?php
+                                    $k=2;
+                                    
+                                };
+                            ?>
+
                         </div>
                     </div>
                     <div class="detail-var-box">
                         <div class="detail-var-box-header">
                             <span>Size: </span>
-                            <label for="" class="detail-var-style">S</label>
-                            <label for="" class="btn-size-guide">Size Guide</label>
+                            <?php 
+
+                            $list_size = $product->get_list_size($id, $style);
+                            
+                            if($list_size){
+                                foreach ($list_size as $item) {
+                                    ?>
+                                    <label for="" class="detail-var-style"><?php echo $item['size_name'] ?></label>
+
+                                    <?php
+                                    break;
+                                }
+                            }
+
+                            ?>
+
+                            <span style="padding: 0 5px;">-</span>
+                            
+                            <label for="" class="btn-size-guide" style="color: #0077cc;">Size Guide</label>
                         </div>
                         <div class="detail-bar-box-size">
-                            <button class="varSize button-size i-active">S</button>
-                            <button class="varSize button-size">M</button>
-                            <button class="varSize button-size">L</button>
-                            <button class="varSize button-size">S</button>
+                            <?php 
+
+                            $list_size = $product->get_list_size($id, $style);
+                            
+                            if($list_size){
+                                $m=1;
+                                foreach ($list_size as $item) {
+                                    ?>
+
+                                    <button class="varSize button-size <?php if($m==1){echo "i-active";} ?>" data-size_id="<?php echo $item['size_id'] ?>" ><?php echo $item['size_name'] ?></button>
+
+                                    <?php
+                                    $m=2;
+                                }
+                            }
+
+                            ?>
+                           
                         </div>
                     </div>
                 </div>  
+                 <?php
+
+                        }
+                    ?>
                 <div class="copt-countdown">
                     <!---->
                     <div class="detail-countdown">
@@ -296,12 +372,12 @@
                 </div>
                 <form class="detail-add-cart">
                     <div class="add-box">
-                        <input type="text" pattern="[0-9]*" class="textCartQuanlity" name="" value="1">
+                        <input type="text" pattern="[0-9]*" class="textCartQuanlity quantity_product" name="" value="1">
                         <button type="button" class="btn-up btnCartUp"><span></span></button>
                         <!-- <button class="btn-down disabled"><span></span></button> -->
                         <button type="button" class="btn-down btnCartDown"><span></span></button>
                     </div>
-                    <button class="btn-add-cart" type="submit" name="">add to cart</button>
+                    <button class="btn-add-cart" id="button_add_to_cart" type="button" name="">add to cart</button>
                 </form>
                 <div class="detail-upsell">
                     <div class="detail-upsell-title">Enjoy Your Saving! Buy more to save more</div>
@@ -386,31 +462,9 @@
                         <span class="tablet-tab-btn-item">SHIPPING POLICIES</span>
                     </div>
                     <div class="tablet-tab-content">
-                        <div class="tablet-tab-item active">
-                            <p><br><strong>Unisex T-shirt</strong></p>
-                            <ul>
-                                <li>100% pre-shrunk cotton</li>
-                                <li>Seamless collar, taped neck and shoulders</li>
-                                <li>Double-needle sleeve and bottom hems</li>
-                                <li>Quarter-turned to eliminate center crease</li>
-                            </ul>
-                            <p>Due to the difference monitor and light effect, the actual color and size of the item may be slightly difference from the visual image.</p>
-                            <p><br><strong>V-neck T-shirt</strong></p>
-                            <ul>
-                                <li>100% airlume combed and ringspun cotton</li>
-                                <li>Super soft jersey knit</li>
-                                <li>Sophisticated and tailored</li>
-                                <li>Can be worn as a casual basic or as an undershirt</li>
-                            </ul>
-                            <p>Due to the difference monitor and light effect, the actual color and size of the item may be slightly difference from the visual image.</p>
-                            <p><br><strong>Ladies T-shirt</strong></p>
-                            <ul>
-                                <li>100% pre-shrunk cotton</li>
-                                <li>Double-needle stitching throughout, seamless collar, taped shoulder-to-shoulder</li>
-                                <li>Feminine cut with narrow 5/8" ribbed neck</li>
-                            </ul>
-                            <p>Due to the difference monitor and light effect, the actual color and size of the item may be slightly difference from the visual image.</p>
-                        </div>
+                        <?php 
+                        echo $result_details['product_desc'];
+                        ?>
                         <div class="tablet-tab-item">
                             <ul>
                                 <li><strong>100% Secure payment</strong> with SSL Encryption.</li>
@@ -1450,6 +1504,35 @@
         <!-- --- -->
     </section>
     <script type="text/javascript" src="js/details.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#button_add_to_cart").click(function(){
+                var style_id = $('.detail-var-box-image img.active').data('style_id');
+                var color_id = $('.detail-var-box-color .button-color').data('color_id');
+                var size_id = $('.detail-bar-box-size .button-size').data('size_id');
+                var quantity = $('.textCartQuanlity.quantity_product').val();
+
+                $.ajax({
+                    url:'ajax/cart_ajax.php',
+                    type: 'POST',
+                    data: {style_id: style_id, color_id: color_id, size_id: size_id, quantity: quantity},
+                    success: function(data){
+                        alert(data)
+                    },
+                    error: function(e){
+                        alert('error sever!')
+                    }
+                })
+
+            });
+
+
+
+
+            // event.preventDefault();
+        })
+    </script>
 
 <?php 
 	include 'inc/footer.php';

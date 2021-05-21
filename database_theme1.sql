@@ -2,10 +2,10 @@
 -- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 21, 2021 lúc 03:44 AM
--- Phiên bản máy phục vụ: 10.4.18-MariaDB
--- Phiên bản PHP: 7.4.16
+-- Host: 127.0.0.1
+-- Generation Time: May 21, 2021 at 01:18 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `database_theme1`
+-- Database: `database_theme1`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `categories`
+-- Table structure for table `categories`
 --
 
 CREATE TABLE `categories` (
@@ -35,7 +35,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `categories`
+-- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`category_id`, `category_parent_id`, `category_name`, `category_slug`) VALUES
@@ -54,34 +54,35 @@ INSERT INTO `categories` (`category_id`, `category_parent_id`, `category_name`, 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `colors`
+-- Table structure for table `colors`
 --
 
 CREATE TABLE `colors` (
   `color_id` int(11) NOT NULL,
-  `color_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `color_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `color_code` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `colors`
+-- Dumping data for table `colors`
 --
 
-INSERT INTO `colors` (`color_id`, `color_name`) VALUES
-(1, 'null'),
-(2, 'Black'),
-(3, 'Royal Blue'),
-(4, 'Red'),
-(5, 'Orange'),
-(6, 'Heliconia'),
-(7, 'Turf Green'),
-(8, 'Team Purple'),
-(9, 'True Royal'),
-(10, 'Navy');
+INSERT INTO `colors` (`color_id`, `color_name`, `color_code`) VALUES
+(1, 'null', ''),
+(2, 'Black', 'background-color: rgb(17, 17, 17)'),
+(3, 'Royal Blue', 'background-color: rgb(10, 19, 57)'),
+(4, 'Red', 'background-color: rgb(43, 99, 186)'),
+(5, 'Orange', 'background-color: rgb(43, 99, 186)'),
+(6, 'Heliconia', 'background-color: rgb(43, 99, 186)'),
+(7, 'Turf Green', 'background-color: rgb(43, 99, 186)'),
+(8, 'Team Purple', 'background-color: rgb(43, 99, 186)'),
+(9, 'True Royal', 'background-color: rgb(10, 19, 57)'),
+(10, 'Navy', 'background-color: rgb(10, 19, 57)');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `orders`
+-- Table structure for table `orders`
 --
 
 CREATE TABLE `orders` (
@@ -102,7 +103,7 @@ CREATE TABLE `orders` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `order_details`
+-- Table structure for table `order_details`
 --
 
 CREATE TABLE `order_details` (
@@ -116,7 +117,7 @@ CREATE TABLE `order_details` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `products`
+-- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
@@ -132,7 +133,7 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `products`
+-- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`product_id`, `category_id`, `product_type_id`, `product_name`, `product_desc`, `product_status`, `product_star_range`, `product_price_cost`, `product_price_sale`) VALUES
@@ -148,7 +149,7 @@ INSERT INTO `products` (`product_id`, `category_id`, `product_type_id`, `product
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `product_images`
+-- Table structure for table `product_images`
 --
 
 CREATE TABLE `product_images` (
@@ -162,7 +163,7 @@ CREATE TABLE `product_images` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `product_images`
+-- Dumping data for table `product_images`
 --
 
 INSERT INTO `product_images` (`product_image_id`, `product_id`, `product_image_url`, `product_image_avatar`, `product_type_id`, `style_id`, `color_id`) VALUES
@@ -171,13 +172,13 @@ INSERT INTO `product_images` (`product_image_id`, `product_id`, `product_image_u
 (3, 1, '0x720@161553631956e7e4d1f4102.png', '2', 1, 2, 3),
 (4, 1, '0x720@1615536319d8a71814104.png', '2', 1, 2, 4),
 (5, 1, '0x720@1615536319cb2c17a0105.png', '2', 1, 2, 7),
-(6, 1, '0x720@161553632058e6a197ae200.png', '2', 1, 3, 1),
+(6, 1, '0x720@161553632058e6a197ae200.png', '2', 1, 3, 3),
 (7, 1, '0x720@161553632000ae095081201.png', '2', 1, 3, 2),
 (8, 1, '0x720@1615536320c21d76ffba202.png', '2', 1, 3, 3),
 (9, 1, '0x720@1615536319d241ae9e49203.png', '2', 1, 3, 8),
 (10, 1, '0x720@16155363203dc9d388b6204.png', '2', 1, 3, 9),
 (11, 1, '0x720@1615536320a7fbdf7fb8205.png', '2', 1, 3, 5),
-(12, 1, '0x720@1615536320362519b73f300.png', '2', 1, 4, 3),
+(12, 1, '0x720@1615536320362519b73f300.png', '2', 1, 4, 2),
 (13, 1, '0x720@1615536320d20d89369a301.png', '2', 1, 4, 4),
 (14, 1, '0x720@1615536320e81b0e8d7c302.png', '2', 1, 4, 5),
 (15, 1, '0x720@16155363204551346392.png', '2', 1, 4, 7),
@@ -187,22 +188,65 @@ INSERT INTO `product_images` (`product_image_id`, `product_id`, `product_image_u
 (19, 2, '0x720@161553631956e7e4d1f4102.png', '2', 1, 2, 3),
 (20, 2, '0x720@1615536319d8a71814104.png', '2', 1, 2, 4),
 (21, 2, '0x720@1615536319cb2c17a0105.png', '2', 1, 2, 7),
-(22, 2, '0x720@161553632058e6a197ae200.png', '2', 1, 3, 1),
+(22, 2, '0x720@161553632058e6a197ae200.png', '2', 1, 3, 4),
 (23, 2, '0x720@161553632000ae095081201.png', '2', 1, 3, 2),
 (24, 2, '0x720@1615536320c21d76ffba202.png', '2', 1, 3, 3),
 (25, 2, '0x720@1615536319d241ae9e49203.png', '2', 1, 3, 8),
-(26, 1, '0x720@16155363203dc9d388b6204.png', '2', 1, 3, 9),
-(27, 1, '0x720@1615536320a7fbdf7fb8205.png', '2', 1, 3, 5),
-(28, 1, '0x720@1615536320362519b73f300.png', '2', 1, 4, 3),
-(29, 1, '0x720@1615536320d20d89369a301.png', '2', 1, 4, 4),
-(30, 1, '0x720@1615536320e81b0e8d7c302.png', '2', 1, 4, 5),
-(31, 1, '0x720@16155363204551346392.png', '2', 1, 4, 7),
-(32, 1, '0x720@1615536320dc2956ce91304.png', '2', 1, 4, 10);
+(26, 2, '0x720@16155363203dc9d388b6204.png', '2', 1, 3, 9),
+(27, 2, '0x720@1615536320a7fbdf7fb8205.png', '2', 1, 3, 5),
+(28, 2, '0x720@1615536320362519b73f300.png', '2', 1, 4, 3),
+(29, 2, '0x720@1615536320d20d89369a301.png', '2', 1, 4, 4),
+(30, 2, '0x720@1615536320e81b0e8d7c302.png', '2', 1, 4, 5),
+(31, 2, '0x720@16155363204551346392.png', '2', 1, 4, 7),
+(32, 2, '0x720@1615536320dc2956ce91304.png', '2', 1, 4, 10),
+(33, 2, '0x720@1615536319d241ae9e49203.png', '2', 1, 3, 8),
+(34, 2, '0x720@16155363203dc9d388b6204.png', '2', 1, 3, 9),
+(35, 2, '0x720@1615536320a7fbdf7fb8205.png', '2', 1, 3, 5),
+(36, 2, '0x720@1615536320362519b73f300.png', '2', 1, 4, 3),
+(37, 2, '0x720@1615536320d20d89369a301.png', '2', 1, 4, 4),
+(38, 2, '0x720@1615536320e81b0e8d7c302.png', '2', 1, 4, 5),
+(39, 2, '0x720@16155363204551346392.png', '2', 1, 4, 7),
+(40, 2, '0x720@1615536320dc2956ce91304.png', '2', 1, 4, 10);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `product_types`
+-- Table structure for table `product_style_size_itemest`
+--
+
+CREATE TABLE `product_style_size_itemest` (
+  `product_style_size_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `style_id` int(11) NOT NULL,
+  `size_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product_style_size_itemest`
+--
+
+INSERT INTO `product_style_size_itemest` (`product_style_size_id`, `product_id`, `style_id`, `size_id`) VALUES
+(1, 1, 2, 2),
+(2, 1, 2, 3),
+(3, 1, 3, 3),
+(4, 1, 3, 5),
+(5, 1, 4, 4),
+(6, 1, 4, 3),
+(7, 1, 5, 2),
+(8, 1, 5, 5),
+(9, 2, 2, 2),
+(10, 2, 2, 3),
+(11, 2, 3, 3),
+(12, 2, 3, 5),
+(13, 2, 4, 4),
+(14, 2, 4, 3),
+(15, 2, 5, 2),
+(16, 2, 5, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_types`
 --
 
 CREATE TABLE `product_types` (
@@ -211,7 +255,7 @@ CREATE TABLE `product_types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `product_types`
+-- Dumping data for table `product_types`
 --
 
 INSERT INTO `product_types` (`product_type_id`, `product_type_name`) VALUES
@@ -222,7 +266,7 @@ INSERT INTO `product_types` (`product_type_id`, `product_type_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `sizes`
+-- Table structure for table `sizes`
 --
 
 CREATE TABLE `sizes` (
@@ -231,7 +275,7 @@ CREATE TABLE `sizes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `sizes`
+-- Dumping data for table `sizes`
 --
 
 INSERT INTO `sizes` (`size_id`, `size_name`) VALUES
@@ -247,7 +291,7 @@ INSERT INTO `sizes` (`size_id`, `size_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `sliders`
+-- Table structure for table `sliders`
 --
 
 CREATE TABLE `sliders` (
@@ -258,7 +302,7 @@ CREATE TABLE `sliders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `sliders`
+-- Dumping data for table `sliders`
 --
 
 INSERT INTO `sliders` (`slider_id`, `slider_name`, `slider_image`, `slider_active`) VALUES
@@ -269,7 +313,7 @@ INSERT INTO `sliders` (`slider_id`, `slider_name`, `slider_image`, `slider_activ
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `styles`
+-- Table structure for table `styles`
 --
 
 CREATE TABLE `styles` (
@@ -278,7 +322,7 @@ CREATE TABLE `styles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `styles`
+-- Dumping data for table `styles`
 --
 
 INSERT INTO `styles` (`style_id`, `style_name`) VALUES
@@ -291,7 +335,7 @@ INSERT INTO `styles` (`style_id`, `style_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -307,37 +351,37 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `categories`
+-- Indexes for table `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`category_id`);
 
 --
--- Chỉ mục cho bảng `colors`
+-- Indexes for table `colors`
 --
 ALTER TABLE `colors`
   ADD PRIMARY KEY (`color_id`);
 
 --
--- Chỉ mục cho bảng `orders`
+-- Indexes for table `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`order_id`),
   ADD KEY `fk_orders_users` (`user_id`);
 
 --
--- Chỉ mục cho bảng `order_details`
+-- Indexes for table `order_details`
 --
 ALTER TABLE `order_details`
   ADD PRIMARY KEY (`order_detail_id`),
   ADD KEY `fk_order_details_orders` (`order_id`);
 
 --
--- Chỉ mục cho bảng `products`
+-- Indexes for table `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`product_id`),
@@ -345,7 +389,7 @@ ALTER TABLE `products`
   ADD KEY `product_type_id` (`product_type_id`);
 
 --
--- Chỉ mục cho bảng `product_images`
+-- Indexes for table `product_images`
 --
 ALTER TABLE `product_images`
   ADD PRIMARY KEY (`product_image_id`),
@@ -355,136 +399,158 @@ ALTER TABLE `product_images`
   ADD KEY `style_id` (`style_id`);
 
 --
--- Chỉ mục cho bảng `product_types`
+-- Indexes for table `product_style_size_itemest`
+--
+ALTER TABLE `product_style_size_itemest`
+  ADD PRIMARY KEY (`product_style_size_id`),
+  ADD KEY `product_id` (`product_id`),
+  ADD KEY `size_id` (`size_id`),
+  ADD KEY `style_id` (`style_id`);
+
+--
+-- Indexes for table `product_types`
 --
 ALTER TABLE `product_types`
   ADD PRIMARY KEY (`product_type_id`);
 
 --
--- Chỉ mục cho bảng `sizes`
+-- Indexes for table `sizes`
 --
 ALTER TABLE `sizes`
   ADD PRIMARY KEY (`size_id`);
 
 --
--- Chỉ mục cho bảng `sliders`
+-- Indexes for table `sliders`
 --
 ALTER TABLE `sliders`
   ADD PRIMARY KEY (`slider_id`);
 
 --
--- Chỉ mục cho bảng `styles`
+-- Indexes for table `styles`
 --
 ALTER TABLE `styles`
   ADD PRIMARY KEY (`style_id`);
 
 --
--- Chỉ mục cho bảng `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `categories`
+-- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT cho bảng `colors`
+-- AUTO_INCREMENT for table `colors`
 --
 ALTER TABLE `colors`
   MODIFY `color_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT cho bảng `orders`
+-- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
   MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `order_details`
+-- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
   MODIFY `order_detail_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `products`
+-- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT cho bảng `product_images`
+-- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `product_image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `product_image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
--- AUTO_INCREMENT cho bảng `product_types`
+-- AUTO_INCREMENT for table `product_style_size_itemest`
+--
+ALTER TABLE `product_style_size_itemest`
+  MODIFY `product_style_size_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `product_types`
 --
 ALTER TABLE `product_types`
   MODIFY `product_type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT cho bảng `sizes`
+-- AUTO_INCREMENT for table `sizes`
 --
 ALTER TABLE `sizes`
   MODIFY `size_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT cho bảng `sliders`
+-- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
   MODIFY `slider_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT cho bảng `styles`
+-- AUTO_INCREMENT for table `styles`
 --
 ALTER TABLE `styles`
   MODIFY `style_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT cho bảng `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `orders`
+-- Constraints for table `orders`
 --
 ALTER TABLE `orders`
   ADD CONSTRAINT `fk_orders_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 
 --
--- Các ràng buộc cho bảng `order_details`
+-- Constraints for table `order_details`
 --
 ALTER TABLE `order_details`
   ADD CONSTRAINT `fk_order_details_orders` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
 
 --
--- Các ràng buộc cho bảng `products`
+-- Constraints for table `products`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`category_id`),
   ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`product_type_id`) REFERENCES `product_types` (`product_type_id`);
 
 --
--- Các ràng buộc cho bảng `product_images`
+-- Constraints for table `product_images`
 --
 ALTER TABLE `product_images`
   ADD CONSTRAINT `product_images_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
-  ADD CONSTRAINT `product_images_ibfk_2` FOREIGN KEY (`product_type_id`) REFERENCES `product_types` (`product_type_id`),
   ADD CONSTRAINT `product_images_ibfk_3` FOREIGN KEY (`color_id`) REFERENCES `colors` (`color_id`),
   ADD CONSTRAINT `product_images_ibfk_4` FOREIGN KEY (`style_id`) REFERENCES `styles` (`style_id`);
+
+--
+-- Constraints for table `product_style_size_itemest`
+--
+ALTER TABLE `product_style_size_itemest`
+  ADD CONSTRAINT `product_style_size_itemest_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
+  ADD CONSTRAINT `product_style_size_itemest_ibfk_2` FOREIGN KEY (`size_id`) REFERENCES `sizes` (`size_id`),
+  ADD CONSTRAINT `product_style_size_itemest_ibfk_3` FOREIGN KEY (`style_id`) REFERENCES `styles` (`style_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

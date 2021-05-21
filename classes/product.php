@@ -37,7 +37,11 @@
 
 			$product_by_id = $this->db->select($query1);
 
-			$query2 = "SELECT * FROM product_images WHERE product_images.product_id='$id' ";
+			$query2 = "
+
+			SELECT * FROM product_images INNER JOIN styles ON product_images.style_id = styles.style_id 
+
+ 			INNER JOIN colors ON product_images.color_id = colors.color_id WHERE product_images.product_id='$id'";
 
 			$product_images_by_id = $this->db->select($query2);
 
@@ -46,6 +50,34 @@
 					'product_images_by_id' => $product_images_by_id ];
 
 			return $result;
+		}
+
+		public function get_list_color_by_product_id($id, $style){
+			$query = "
+			SELECT colors.* FROM product_images  INNER JOIN colors ON product_images.color_id = colors.color_id 
+
+			INNER JOIN styles ON product_images.style_id = styles.style_id WHERE product_images.product_id='$id' AND styles.style_name='$style'";
+
+			$color_by_pro_id = $this->db->select($query);
+
+			$list_color=[];
+			foreach ($color_by_pro_id as $key) {
+				array_push($list_color, $key );
+			}
+			$result = array_unique($list_color, 0);
+			return $result;
+		}
+
+		public function get_list_size($id, $style){
+			
+			$query = "
+			SELECT * FROM product_style_size_itemest  INNER JOIN styles ON product_style_size_itemest.style_id = styles.style_id 
+
+			INNER JOIN sizes ON product_style_size_itemest.size_id = sizes.size_id WHERE product_style_size_itemest.product_id='$id' AND styles.style_name='$style'";
+
+			$list_size = $this->db->select($query);
+
+			return $list_size;
 		}
 
 	}

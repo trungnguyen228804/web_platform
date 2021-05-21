@@ -34,7 +34,7 @@ include 'inc/header.php';
                     <a href="#" class="search-product-item">
                         <div class="search-product-item-image-out">
                             <div class="search-product-item-image">
-                                <img src="img/<?php echo $search_img->product_image_url?>" alt="">
+                                <img src="admin/uploads/<?php echo $search_img->product_image_url?>" alt="">
                             </div>
                         </div>  
                         <div class="search-product-info">

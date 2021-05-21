@@ -1,8 +1,4 @@
-<?php
-include 'config-t/config.php';
-$search = $MySQL->get_results("SELECT product_type_id,product_name,product_price_cost,product_price_sale FROM products WHERE product_status = 1");
 
-?>
 <?php
 include 'inc/head.php';
 include 'inc/header.php';
@@ -25,34 +21,12 @@ include 'inc/header.php';
                 </div>
             </form>
         </div>
-        <div class="search-product-list">
+        <div id="seach-data" class="search-product-list">
             <?php
-            if ($search) {
-                foreach ($search as $key_search => $value_search) {
-                    $search_img = $MySQL->findOne("product_images", array("product_id" => $value_search['product_type_id'],"product_image_avatar"=>'1'));
-                    ?>
-                    <a href="#" class="search-product-item">
-                        <div class="search-product-item-image-out">
-                            <div class="search-product-item-image">
-                                <img src="img/<?php echo $search_img->product_image_url?>" alt="">
-                            </div>
-                        </div>  
-                        <div class="search-product-info">
-                            <p><?php echo $value_search['product_name'] ?></p>
-                            <div class="search-product-price-out">
-                                <span class="search-product-price"><?php echo $value_search['product_price_sale']  ?></span>
-                                <span class="search-product-price-old"><?php echo $value_search['product_price_cost'] ?></span>
-                            </div>
-                        </div>
-                        <div class="search-product-sale">
-                        </div>
-                    </a>
-                    <?php
-                }
-            }
+            include 'data-seach.php';
             ?>
         </div>
-        <button class="search-load-more">
+        <button id="load_more" class="search-load-more">
             load more
         </button>
     </div>
@@ -60,3 +34,38 @@ include 'inc/header.php';
 <?php
 include 'inc/footer.php';
 ?>
+<script>
+    var is_busy = false;
+    var page = 1;
+    var record_per_page = 4;
+    var stopped = false;
+    $(document).ready(function ()
+    {
+        $('#load_more').click(function ()
+        {
+            $element = $('#seach-data');
+            $button = $(this);
+            if (is_busy == true) {
+                return false;
+            }
+            page++;
+            $button.html('Loading ...');
+            $.ajax(
+                    {
+                        type: 'get',
+                        dataType: 'text',
+                        url: '/data-seach.php',
+                        data: {page: page},
+                        success: function (result)
+                        {
+                            $element.append(result);
+                        }
+                    })
+                    .always(function ()
+                    {
+                        $button.html('load more');
+                        is_busy = false;
+                    });
+        });
+    });
+</script>

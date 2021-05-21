@@ -12,7 +12,7 @@
 
 ?>
 <section id="ss-detail">
-        <!-- <div class="sticky-bar-wrapper">
+        <div class="sticky-bar-wrapper">
             <div class="flex-center container">
                 <div class="sticky-bar-left">
                     <div class="sticky-bar-left-image">
@@ -97,13 +97,15 @@
                 </div>
             </div>
             
-        </div> -->
+        </div>
         <!-- --- -->
         <?php
 
         $get_product_details = $product->get_details($id);
         $product_by_id = $get_product_details['product_by_id'];
         $product_images_by_id = $get_product_details['product_images_by_id'];
+        $product_images_by_id2 = $get_product_details['product_images_by_id'];
+
 
         if($product_by_id){
             while($result_details = $product_by_id->fetch_assoc()){
@@ -118,11 +120,6 @@
                         <?php
                         if($product_images_by_id){
                             while($result_images_avatar = $product_images_by_id->fetch_assoc()){
-                            //only show image have style Unisex T-Shirt
-                            if($result_images_avatar['style_id']!=2)continue;
-                            // echo "<pre>";
-                            // print_r($result_details);
-                            // echo "</pre>";
                         ?>
                         <div class="product-image-item"><img src="admin/uploads/<?php echo $result_images_avatar['product_image_url'] ?>" alt="<?php echo $result_details['product_name'] ?>"></div>
                         
@@ -130,6 +127,10 @@
                             }
                         }
                         ?>
+
+                        
+
+
                     </div>
                     <div class="detail-prev prev">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 24 24">
@@ -160,22 +161,27 @@
                     <div class="product-thumb-list">
 
                         <?php
-                        if($product_images_by_id){
-                            while($result_images_avatar = $product_images_by_id->fetch_assoc()){
-                            //only show image have style T-Shirt
-                            if($result_images_avatar['style_id']!=2)continue;
-                            // echo "<pre>";
-                            // print_r($result_details);
-                            // echo "</pre>";
-                        ?>
-                        <div class="product-thumb-item"><img src="admin/uploads/<?php echo $result_images_avatar['product_image_url'] ?>" alt="<?php echo $result_details['product_name'] ?>"></div>
+                        if($product_by_id){
+                            
+                            $row = mysqli_fetch_assoc($product_by_id);
+                            echo "<pre>";
+                            print_r($row);
+                            echo "</pre>";
 
+                            while($result_images_avatar = $product_by_id->fetch_assoc()){
+                            echo "string";
+                            echo "<pre>";
+                            print_r($result_images_avatar);
+                            echo "</pre>";
+                        ?>
+                       <!--  <div class="product-image-item i-active"><img src="admin/uploads/<?php echo $result_images_avatar['product_image_url'] ?>" alt="<?php echo $result_details['product_name'] ?>"></div> -->
+                        
                         <?php
                             }
                         }
                         ?>
 
-                        <div class="product-thumb-item i-active"><img src="img/product1-1.png" alt=""></div>
+                        <!-- <div class="product-thumb-item i-active"><img src="img/product1-1.png" alt=""></div>
                         <div class="product-thumb-item"><img src="img/product1-2.png" alt=""></div>
                         <div class="product-thumb-item"><img src="img/product1-3.png" alt=""></div>
                         <div class="product-thumb-item"><img src="img/product1-4.png" alt=""></div>
@@ -186,7 +192,7 @@
                         <div class="product-thumb-item"><img src="img/product1-1.png" alt=""></div>
                         <div class="product-thumb-item"><img src="img/product1-2.png" alt=""></div>
                         <div class="product-thumb-item"><img src="img/product1-3.png" alt=""></div>
-                        <div class="product-thumb-item"><img src="img/product1-4.png" alt=""></div>
+                        <div class="product-thumb-item"><img src="img/product1-4.png" alt=""></div> -->
                     </div>
                     <div class="prev thumb-prev">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 24 24">
